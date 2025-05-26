@@ -1,0 +1,204 @@
+       logo {
+            position:absolute;
+            display: flex;
+        }
+
+        
+       body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Game container styling */
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px; /* Max width for larger screens */
+            background-color: darkorange;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Canvas for drawing lines */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 4; /* Below images */
+            pointer-events:painted ; /* Allows clicks to pass through to images */
+        }
+
+        /* Image grid layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive columns */
+            gap: 80px;
+            width: 100%;
+            z-index: 4; /* Above canvas */
+            position: relative; /* To ensure z-index works */
+        }
+
+        /* Individual image card styling */
+        .image-card {
+            background-color: #0858e2;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            box-sizing: border-box;
+            min-height: 150px; /* Ensure cards have a minimum height */
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.30);
+        }
+
+        .image-card.selected {
+            border: 3px solid white; /* Green border for selected */
+            box-shadow: 0 0 15px rgb(255, 255, 255);
+        }
+
+        .image-card.matched {
+            opacity: 0.7;
+            pointer-events: none; /* Disable clicks on matched images */
+            border: 3px solid hwb(210 94% 4%); /* Blue border for matched */
+        }
+
+        .image-card img {
+            max-width: 95%;
+            max-height: 120px; /* Adjusted height for images as no text is present */
+            border-radius: 8px;
+            object-fit: contain; /* Ensures image fits without cropping */
+        }
+
+        /* Congratulations message styling */
+        .congratulations-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            flex-direction: column;
+        }
+
+        .congratulations-message.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .congratulations-message-content {
+            background-color: #fff;
+            padding: 40px 60px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+        }
+
+        .congratulations-message.show .congratulations-message-content {
+            transform: scale(1);
+        }
+
+        .congratulations-message h2 {
+            color: #4CAF50;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .congratulations-message p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .congratulations-message button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .congratulations-message button:hover {
+            background-color: #1976D2;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 20px;
+            }
+            .image-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 15px;
+            }
+            .image-card {
+                min-height: 120px;
+                padding: 8px;
+            }
+            .image-card img {
+                max-height: 90px; /* Adjusted height for images */
+            }
+            .congratulations-message h2 {
+                font-size: 2em;
+            }
+            .congratulations-message p {
+                font-size: 1em;
+            }
+            .congratulations-message button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on very small screens */
+                gap: 10px;
+            }
+            .image-card {
+                min-height: 100px;
+                padding: 5px;
+            }
+            .image-card img {
+                max-height: 80px; /* Adjusted height for images */
+            }
+            .congratulations-message-content {
+                padding: 25px 35px;
+            }
+        }

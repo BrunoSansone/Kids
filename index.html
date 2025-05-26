@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Matching Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link rel= "stylesheet" href="styles.css">
+
+<header >
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo"> 
+    </div>
+</header>        
+</head>
+<body>
+    <div class="game-container">
+        <h1>Match the Pairs!</h1>
+        <canvas id="gameCanvas"></canvas>
+        <div class="image-grid" id="imageGrid">
+            </div>
+    </div>
+
+    <div class="congratulations-message" id="congratulationsMessage">
+        <div class="congratulations-message-content">
+            <h2>Congratulations!</h2>
+            <p>You've successfully matched all the pairs!</p>
+            <button id="restartButton">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
