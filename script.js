@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Each object has an id, src, alt text, and a 'match' property
             // The 'match' property links to the id of its correct partner.
             const imageData = [
-                { id: 'rye', src: 'images/rye.jpeg', alt: 'rye', match: 'pie' },
-                { id: 'pie', src: 'images/pie.jpeg', alt: 'pie', match: 'rye' },
-                { id: 'cat', src: 'images/cat.jpeg', alt: 'cat', match: 'hat' },
-                { id: 'hat', src: 'images/hat.jpeg', alt: 'hat', match: 'cat' },
-                { id: 'money', src: 'images/money.jpeg', alt: 'money', match: 'honey' },
-                { id: 'honey', src: 'images/honey.jpeg', alt: 'honey', match: 'money' },
-                { id: 'sing', src: 'images/sing.jpeg', alt: 'sing', match: 'king' },
-                { id: 'king', src: 'images/king.jpeg', alt: 'king', match: 'sing' },
+                { id: 'rye', src: 'rye.jpeg', alt: 'rye', match: 'pie' },
+                { id: 'pie', src: 'pie.jpeg', alt: 'pie', match: 'rye' },
+                { id: 'cat', src: 'cat.jpeg', alt: 'cat', match: 'hat' },
+                { id: 'hat', src: 'hat.jpeg', alt: 'hat', match: 'cat' },
+                { id: 'money', src: 'money.jpeg', alt: 'money', match: 'honey' },
+                { id: 'honey', src: 'honey.jpeg', alt: 'honey', match: 'money' },
+                { id: 'sing', src: 'sing.jpeg', alt: 'sing', match: 'king' },
+                { id: 'king', src: 'king.jpeg', alt: 'king', match: 'sing' },
             ];
 
             let selectedCard = null; // Stores the first selected image card element
